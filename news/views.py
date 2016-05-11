@@ -26,7 +26,7 @@ def new_feed(request):
                 article.title = entry.title
                 article.url =entry.link
                 article.description = entry.description
-                d = datetime.detetime(*(entry.published_parsed[0:6]))
+                d = datetime.datetime(*(entry.published_parsed[0:6]))
                 dateString = d.strftime('%Y-%m-%d %H:%M:%S')
                 article.publication_date = dateString
                 article.feed = feed

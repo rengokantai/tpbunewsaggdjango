@@ -1,11 +1,15 @@
 {% extends 'news/base.html' %}
 {% block content %}
-new feed
+<div class="jumbotron">
+  <div class="container">
+    <h1>News Feeds</h1>
+  </div>
+</div>
 <div class="container">
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">save</button>
+        <button class="btn btn-primary" type="submit">save</button>
     </form>
 </div>
 
