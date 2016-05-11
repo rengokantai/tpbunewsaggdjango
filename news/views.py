@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Article,Feed
 from .forms import FeedForm
-
+import feedparser
 # Create your views here.
 def articles_list(request):
     articles = Article.objects.all()
@@ -16,8 +16,16 @@ def new_feed(request):
         form = FeedForm(request.POST)
         if form.is_valid():
             feed = form.save(commit=False)
-            feed.title = ""
+            feedData = feedparser.parse(feed.url)
+            feed.title = feedData.feed.title
             feed.save()
+            for entry in feedData.entries:
+                article = Article()
+                article.title = entry.title
+                article.url =entry.link
+                article.description = entry.description
+                article.feed = feed
+                article.save()
             return redirect('news.views.feeds_list')
     else:
         form = FeedForm()
