@@ -66,6 +66,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+        'TEMPLATE_DIRS' : (
+    os.path.join(BASE_DIR,  'templates'),
+)
     },
 ]
 
@@ -102,6 +105,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-)
