@@ -1,0 +1,12 @@
+{% extends 'news/base.html' %}
+{% block content %}
+new feed
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">save</button>
+    </form>
+</div>
+
+{% endblock %}
