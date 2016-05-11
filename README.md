@@ -15,3 +15,9 @@ get RSS
 ```
 http://djangoproject.com/rss/weblog
 ```
+#####4
+######3
+filfer to remove html tags
+```
+{{description |safe}}
+```
